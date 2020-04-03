@@ -1,12 +1,7 @@
 package Ejercicio2;
 
-import sun.security.acl.AclEntryImpl;
-
-import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.UUID;
 
 public class Principal2 {
     static ArrayList<ItemVenta> arregloDeProductos = new ArrayList<ItemVenta>();
@@ -28,18 +23,18 @@ public class Principal2 {
 
        //Inciso b
 
-        Cliente clientin = new Cliente("Guillermo","guimainini@gmail.com",20);
+        Cliente clienteUno = new Cliente("Guillermo","guimainini@gmail.com",20);
 
-        Factura facturin = new Factura(50000,clientin);
+        Factura facturaPrimera = new Factura(50000,clienteUno);
 
         //Inciso c
-        System.out.println(facturin.toString());
-        System.out.println("El Monto es "+facturin.getMontoTotal()+" se la aplica un descuento de %"+clientin.getPorcentajeDescuento()+" siendo un TOTAL de -> "+facturin.montoFinal());
+        System.out.println(facturaPrimera.toString());
+        System.out.println("El Monto es "+facturaPrimera.getMontoTotal()+" se la aplica un descuento de %"+clienteUno.getPorcentajeDescuento()+" siendo un TOTAL de -> "+facturaPrimera.montoFinal());
 
         //Inciso d
-        System.out.println("Factura = "+facturin.getIdePrimero()+" Fecha = "+facturin.getDiaActual()+" Monton = "+facturin.getMontoTotal()+" " +
-                "Monto con Descuento = "+facturin.montoFinal()+" Cliente -> "+clientin.getIdePrimero()+" Nombre -> "+clientin.getNombre()+" " +
-                "MAIL -> "+clientin.getEmail()+" Descuento %"+clientin.getPorcentajeDescuento());
+        System.out.println("Factura = "+facturaPrimera.getIdePrimero()+" Fecha = "+facturaPrimera.getDiaActual()+" Monton = "+facturaPrimera.getMontoTotal()+" " +
+                "Monto con Descuento = "+facturaPrimera.montoFinal()+" Cliente -> "+clienteUno.getId()+" Nombre -> "+clienteUno.getNombre()+" " +
+                "MAIL -> "+clienteUno.getEmail()+" Descuento %"+clienteUno.getPorcentajeDescuento());
 
 
         //Inciso e
@@ -127,12 +122,12 @@ public class Principal2 {
     }
 
     static public double sumaSinDescuente(){
-        double montin = 0;
+        double monto = 0;
         for(int i=0; i<arregloDeProductos.size();i++) {
-            montin += arregloDeProductos.get(i).getPrecioUnitario();
+            monto += arregloDeProductos.get(i).getPrecioUnitario();
         }
-        //System.out.println("La suma total a pagar es Sin Descuento: "+montin);
-        return montin;
+        //System.out.println("La suma total a pagar es Sin Descuento: "+monto);
+        return monto;
     }
 
 

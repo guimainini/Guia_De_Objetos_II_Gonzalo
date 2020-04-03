@@ -1,71 +1,81 @@
 package Ejercicio1;
 
-public class Libro {
-    private String titulo;
-    private int precio;
-    private int stock;
-    private Autor autor;
+import java.util.ArrayList;
 
-    public Libro(String titulo, int precio, int stock, Autor autor) {
+public class Libro {
+    //Atributos
+    private String titulo;
+    private float precio;
+    private int stock;
+    private Autor autor1;
+    private ArrayList<Autor> listaAutores = new ArrayList<Autor>();
+
+    //Metodos
+    public Libro (String titulo, float precio, int stock, Autor autor1){
         this.titulo = titulo;
         this.precio = precio;
         this.stock = stock;
-        this.autor = autor;
+        this.autor1 = autor1;
+        this.listaAutores = listaAutores;
     }
 
-    public String getTitulo() {
-        return titulo;
+    @Override
+    public String toString() {
+        int i = listaAutores.size();
+        return "Libro{" +
+                "titulo='" + titulo + '\'' +
+                ", precio=" + precio +
+                ", stock=" + stock +
+                ", autor=" + autor1 +
+                '}';
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
-    public int getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(int precio) {
+    public void setPrecio(float precio) {
         this.precio = precio;
-    }
-
-    public int getStock() {
-        return stock;
     }
 
     public void setStock(int stock) {
         this.stock = stock;
     }
 
-    public Autor getAutor() {
-        return autor;
+    public int getStock(){
+        return stock;
     }
 
-    public void setAutor(Autor autor) {
-        this.autor = autor;
+    public void setListaAutores(ArrayList<Autor> listaAutores) {
+        this.listaAutores = listaAutores;
     }
 
-    @Override
-    public String toString() {
-        return "Libro{" +
-                "titulo='" + titulo + '\'' +
-                ", precio=" + precio +
-                ", stock=" + stock +
-                " " + autor +
-                '}';
-    }
-    public void mensaje(){
-        System.out.println("El Libro "+this.getTitulo()+" de "+getAutor().getNombre()+". Se vende a "+getPrecio()+" pesos");
+    public String mostrar(){
+        return "El libro, "+titulo+" de "+ autor1.getNombre()+". Se vende a "+precio+" pesos";
     }
 
-
-
-    public void mensaje(Autor aut){
-        System.out.println("El Libro "+this.getTitulo()+" de "+getAutor().getNombre()+" y "+aut.getNombre()+". Se vende a "+getPrecio()+" pesos");
+    public void mostrarArray(){  //auxiliar que muestra el arreglo dinamico de Autores
+        for (int i=0; i<listaAutores.size(); i++){
+            System.out.println(listaAutores.get(i));
+        }
     }
 
-    public void mensaje(Autor aut,Autor aut2){
-        System.out.println("El Libro "+this.getTitulo()+" de "+getAutor().getNombre()+" , "+aut.getNombre()+" y "+aut2.getNombre()+". Se vende a "+getPrecio()+" pesos");
+    public Autor getAutor1() {
+        return autor1;
     }
 
+    public void mostrarNombreArray(){  //auxiliar que muestra los nombres del arreglo dinamico
+        for (int i=0; i<listaAutores.size(); i++){
+            System.out.println(listaAutores.get(i).getNombre());
+        }
+    }
+
+    public String fusionar(){  //auxiliar que junta los nombres de los Autores
+        String fusion = new String();
+        for (int i=0; i<listaAutores.size(); i++){
+            fusion += " "+listaAutores.get(i).getNombre();
+        }
+        return fusion;
+    }
+
+    public void mostrarMagia(){  //el nuevo mostrar, asi no borraba el anterior
+        //int i = listaAutores.size();
+        System.out.println("El libro, "+titulo+" de"+fusionar()+". Se vende a "+precio+" pesos");
+    }
 }

@@ -3,20 +3,20 @@ package Ejercicio2;
 import java.util.UUID;
 
 public class Cliente {
-    private UUID idePrimero = UUID.randomUUID();
+    private UUID id = UUID.randomUUID();
     private String nombre;
     private String email;
     private double porcentajeDescuento;
 
     public Cliente(String nombre, String email, double porcentajeDescuento) {
-        this.idePrimero = idePrimero;
+        this.id = id;
         this.nombre = nombre;
         this.email = email;
         this.porcentajeDescuento = porcentajeDescuento;
     }
 
-    public UUID getIdePrimero() {
-        return idePrimero;
+    public UUID getId() {
+        return id;
     }
 
     public String getNombre() {
@@ -34,7 +34,7 @@ public class Cliente {
     @Override
     public String toString() {
         return "Cliente{" +
-                "idePrimero=" + idePrimero +
+                "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", email='" + email + '\'' +
                 ", porcentajeDescuento=" + porcentajeDescuento +

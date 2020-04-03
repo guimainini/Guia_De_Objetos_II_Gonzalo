@@ -50,6 +50,7 @@ public class Cuenta {
 
         if( (balance - extraer) >= - 2000 ){
             balance -= extraer;
+            System.out.println("Su balance es : "+this.balance);
         }else{
             System.out.println("No se puede retirar mas de esa plata");
         }
